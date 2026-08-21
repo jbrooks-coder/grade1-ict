@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grade 1 ICT - Unit 5 Keyboarding</title><style>
+:root{--a:#17a2b8;--ink:#17324d;--good:#278b57;--bad:#c84343}*{box-sizing:border-box}
+body{margin:0;font-family:Trebuchet MS,Arial,sans-serif;background:linear-gradient(#eafaff,#fff8e9);color:var(--ink)}
+.app{max-width:980px;margin:auto;padding:18px}.top{display:flex;align-items:center;gap:14px;background:#fff;border:2px solid #d8edf3;border-radius:20px;padding:13px 16px;position:sticky;top:7px;z-index:5}
+.home{text-decoration:none;color:#087d90;font-weight:900}.ttl{font-size:24px;font-weight:900;flex:1}.prog{width:190px;height:14px;background:#e6eef2;border-radius:99px;overflow:hidden}.bar{height:100%;width:0;background:var(--a)}
+.s{display:none;background:#fff;border:2px solid #e1f0f4;border-radius:28px;padding:28px;margin-top:18px;min-height:570px;box-shadow:0 10px 28px #17324d18}.s.on{display:block}
+h1{font-size:54px;margin:0 0 12px}h2{font-size:40px;margin-top:0}.lead,.q{font-size:27px;line-height:1.35}.hero{text-align:center}.big{font-size:125px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.card{background:#f7fcfe;border:3px solid #d9ebf1;border-radius:20px;padding:18px;text-align:center;font-size:23px;font-weight:800}.e{font-size:55px;display:block}
+.choices,.nav{display:flex;flex-wrap:wrap;gap:15px;margin-top:20px}button{border:0;border-radius:18px;padding:16px 21px;font-size:21px;font-weight:900;cursor:pointer;box-shadow:0 5px 0 #17324d20}
+.next{background:var(--a);color:#fff}.back{background:#edf5f8;color:var(--ink)}.choice{flex:1 1 250px;background:#fff;border:3px solid #d9ebf1;color:var(--ink);min-height:100px}.choice.good{background:#eaf8f0;border-color:var(--good)}.choice.bad{background:#fff0f0;border-color:var(--bad)}
+.fb{display:none;margin-top:18px;padding:16px;border-radius:18px;font-size:24px;font-weight:900}.fb.show{display:block}.ok{background:#eaf8f0;color:#176a41}.no{background:#fff0f0;color:#963030}
+.key{display:inline-grid;place-items:center;min-width:75px;height:65px;padding:0 15px;margin:5px;border:3px solid #93b8c4;border-radius:12px;background:#fff;box-shadow:0 6px 0 #93b8c4;font-size:24px;font-weight:900}
+.keyboard{text-align:center;background:#eef8fb;border-radius:22px;padding:18px}.typebox{width:100%;font-size:30px;padding:18px;border:4px solid #b8dce5;border-radius:18px;outline:none}.typebox:focus{border-color:#17a2b8}
+.demo{font-family:monospace;font-size:34px;background:#f4f8fa;border-radius:18px;padding:20px;min-height:85px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.prog{width:100px}h1{font-size:42px}.key{min-width:55px;height:55px;font-size:19px}}
+</style></head><body><div class="app"><div class="top"><a class="home" href="../">🏠 Home</a><div class="ttl">⌨️ Unit 5: Keyboarding</div><div class="prog"><div id="bar" class="bar"></div></div></div>
+
+<section class="s on"><div class="hero"><div class="big">⌨️✨</div><h1>Keyboarding Skills</h1><p class="lead">Learn keyboard keys and practice typing letters, numbers, words, and sentences.</p><button class="next" onclick="go(1)">Start ▶</button></div></section>
+
+<section class="s"><h2>📝 Word Processing</h2><p class="lead">A word processing program is used to write (type) on a computer.</p><div class="grid"><div class="card"><span class="e">✏️📖</span>Pencil: write in a book</div><div class="card"><span class="e">⌨️🖥️</span>Keyboard: type on a computer</div></div><div class="nav"></div></section>
+
+<section class="s"><h2>⌨️ Meet the Keys</h2><div class="keyboard"><span class="key">A</span><span class="key">B</span><span class="key">C</span><span class="key">1</span><span class="key">2</span><span class="key">3</span><br><span class="key">Caps Lock</span><span class="key">Backspace ⌫</span><span class="key">Enter ↵</span><br><span class="key" style="min-width:310px">Spacebar</span></div><div class="nav"></div></section>
+
+<section class="s"><h2>🔤 Alphabet Keys</h2><p class="q">Which keys do we use to type letters?</p><div class="choices"><button class="choice" onclick="ans(this,true,'f3')">A B C D ... Z</button><button class="choice" onclick="ans(this,false,'f3')">1 2 3 4 ... 0</button></div><div id="f3" class="fb"></div><div class="nav"></div></section>
+
+<section class="s"><h2>🔢 Number Keys</h2><p class="q">Which keys do we use to type numbers?</p><div class="choices"><button class="choice" onclick="ans(this,false,'f4')">A B C</button><button class="choice" onclick="ans(this,true,'f4')">1 2 3 4 5 6 7 8 9 0</button></div><div id="f4" class="fb"></div><div class="nav"></div></section>
+
+<section class="s"><h2>🔠 Caps Lock</h2><p class="lead">Caps Lock ON → CAPITAL letters.<br>Caps Lock OFF → small letters.</p><div class="demo" id="capsDemo">a</div><div class="choices"><button class="choice" onclick="caps(true)">Turn Caps Lock ON</button><button class="choice" onclick="caps(false)">Turn Caps Lock OFF</button></div><div id="fcaps" class="fb show ok">Try both buttons!</div><div class="nav"></div></section>
+
+<section class="s"><h2>⌫ Backspace</h2><p class="lead">Backspace erases.</p><div class="demo" id="erase">KEYBOARD</div><div class="choices"><button class="choice" onclick="eraseOne()">Press Backspace ⌫</button></div><div id="ferase" class="fb show ok">Press it more than once.</div><div class="nav"></div></section>
+
+<section class="s"><h2>↵ Enter Key</h2><p class="lead">The Enter Key changes line.</p><div class="demo" id="enterDemo">Monday<span id="line2"></span></div><div class="choices"><button class="choice" onclick="enterLine()">Press Enter ↵</button></div><div id="fenter" class="fb show ok">Press Enter to move to a new line.</div><div class="nav"></div></section>
+
+<section class="s"><h2>␣ Spacebar</h2><p class="lead">The Spacebar is the longest key. It leaves a space between letters, numbers, or words.</p><div class="choices"><button class="choice" onclick="spaceDemo()">Press Spacebar</button></div><div class="demo" id="spaceText">1</div><div class="nav"></div></section>
+
+<section class="s"><h2>🎯 Typing Practice</h2><p class="q">Type the word <b>KEYBOARD</b>.</p><input id="typing" class="typebox" autocomplete="off" placeholder="Type here..." oninput="checkType()"><div id="ftype" class="fb">Keep typing!</div><div class="nav"></div></section>
+
+<section class="s"><h2>🛠️ Fix the Mistake</h2><p class="q">Which key would you use to erase the extra letter?</p><div class="demo">bicyclee</div><div class="choices"><button class="choice" onclick="ans(this,true,'ffix')">⌫ Backspace</button><button class="choice" onclick="ans(this,false,'ffix')">Caps Lock</button><button class="choice" onclick="ans(this,false,'ffix')">Spacebar</button></div><div id="ffix" class="fb"></div><div class="nav"></div></section>
+
+<section class="s"><h2>⚡ Key Match</h2><p class="q">Which key leaves a space?</p><div class="choices"><button class="choice" onclick="ans(this,false,'f11')">Enter</button><button class="choice" onclick="ans(this,true,'f11')">Spacebar</button><button class="choice" onclick="ans(this,false,'f11')">Backspace</button></div><div id="f11" class="fb"></div><div class="nav"></div></section>
+
+<section class="s"><div class="hero"><div class="big">🏆⌨️</div><h1>Keyboard Star!</h1><p class="lead">You practiced Alphabet Keys, Number Keys, Caps Lock, Backspace, Enter, Spacebar, and typing.</p><div class="nav" style="justify-content:center"><button class="next" onclick="location.reload()">Play Again ↻</button><button class="back" onclick="location.href='../'">🏠 Units</button></div></div></section>
+</div><script>
+const S=[...document.querySelectorAll('.s')];let cur=0,spaces=1;
+document.querySelectorAll('.nav').forEach((n,i)=>{if(!n.children.length)n.innerHTML='<button class="back" onclick="go('+i+')">◀ Back</button><button class="next" onclick="go('+(i+2)+')">Next ▶</button>'});
+function go(n){cur=Math.max(0,Math.min(n,S.length-1));S.forEach((x,i)=>x.classList.toggle('on',i===cur));bar.style.width=(cur/(S.length-1)*100)+'%';scrollTo(0,0)}
+function ans(b,ok,id){b.parentElement.querySelectorAll('.choice').forEach(x=>x.classList.remove('good','bad'));b.classList.add(ok?'good':'bad');let f=document.getElementById(id);f.className='fb show '+(ok?'ok':'no');f.textContent=ok?'✅ Great job!':'❌ Try again.'}
+function caps(on){capsDemo.textContent=on?'A':'a';fcaps.textContent=on?'🔠 Caps Lock is ON: CAPITAL letter':'🔡 Caps Lock is OFF: small letter'}
+function eraseOne(){let e=document.getElementById('erase');if(e.textContent.length)e.textContent=e.textContent.slice(0,-1);ferase.textContent='⌫ Backspace erased one character.'}
+function enterLine(){line2.innerHTML='<br>Tuesday';fenter.textContent='✅ The cursor changed line!'}
+function spaceDemo(){spaces++;spaceText.textContent=Array.from({length:Math.min(spaces,10)},(_,i)=>i+1).join(' ')}
+function checkType(){let f=document.getElementById('ftype'),v=document.getElementById('typing').value;if(v.toUpperCase()==='KEYBOARD'){f.className='fb show ok';f.textContent='✅ Excellent typing!'}else{f.className='fb show no';f.textContent='Keep going: KEYBOARD'}}
+</script></body></html>
