@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grade 1 ICT - Unit 2 Tablets</title><style>
+:root{--a:#17a2b8;--ink:#17324d;--good:#2e9d62;--bad:#d14a4a}
+*{box-sizing:border-box}body{margin:0;font-family:Trebuchet MS,Arial;background:linear-gradient(#eafaff,#fff9ed);color:var(--ink)}
+.app{max-width:960px;margin:auto;padding:18px}.top{display:flex;gap:14px;align-items:center;background:white;border:2px solid #d9edf4;border-radius:20px;padding:12px 16px;position:sticky;top:6px;z-index:3}
+.top a{text-decoration:none;font-weight:bold;color:#087d90}.title{font-size:25px;font-weight:900;flex:1}.prog{width:180px;height:14px;background:#e7eef2;border-radius:20px;overflow:hidden}.bar{height:100%;background:#17a2b8;width:0}
+.s{display:none;background:white;border:2px solid #e2f0f4;border-radius:28px;padding:27px;margin-top:18px;min-height:570px;box-shadow:0 10px 28px #17324d18}.s.on{display:block}
+h1{font-size:55px;margin:0 0 14px}h2{font-size:42px;margin-top:0}p,.q{font-size:28px;line-height:1.35}.hero{text-align:center}.hero .emoji{font-size:140px}
+.buttons,.choices{display:flex;flex-wrap:wrap;gap:15px;margin-top:20px}button{border:0;border-radius:18px;padding:16px 21px;font-size:22px;font-weight:900;cursor:pointer;box-shadow:0 5px 0 #17324d20}
+.next{background:var(--a);color:white}.back{background:#edf5f8;color:var(--ink)}.choice{flex:1 1 260px;min-height:105px;background:white;border:3px solid #d8eaf0;color:var(--ink)}
+.choice.good{background:#eaf8f0;border-color:var(--good)}.choice.bad{background:#fff0f0;border-color:var(--bad)}
+.fb{display:none;margin-top:18px;padding:17px;border-radius:18px;font-size:24px;font-weight:bold}.fb.show{display:block}.fb.ok{background:#eaf8f0;color:#176a41}.fb.no{background:#fff0f0;color:#9f3030}
+.parts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.part{background:#f7fcfe;border:2px solid #d8eaf0;border-radius:20px;padding:18px;text-align:center;font-size:23px}.part b{display:block;font-size:46px}
+.steps{counter-reset:n}.step{display:flex;gap:14px;align-items:center;background:#f7fcfe;border-radius:18px;padding:14px;margin:11px 0;font-size:23px}.step:before{counter-increment:n;content:counter(n);display:grid;place-items:center;min-width:45px;height:45px;border-radius:50%;background:#17a2b8;color:white;font-weight:bold}
+@media(max-width:650px){.parts{grid-template-columns:1fr}.prog{width:100px}h1{font-size:42px}}
+</style></head><body><div class="app"><div class="top"><a href="../">🏠 Home</a><div class="title">📱 Unit 2: Tablets</div><div class="prog"><div id="bar" class="bar"></div></div></div>
+
+<section class="s on"><div class="hero"><div class="emoji">📱✨</div><h1>Working with Tablets</h1><p>Learn how to care for a tablet, name its parts, and turn it on and off.</p><button class="next" onclick="go(1)">Start ▶</button></div></section>
+
+<section class="s"><h2>🤲 Handle It With Care</h2><p class="q">Which is the best way to use a tablet?</p><div class="choices">
+<button class="choice" onclick="ans(this,true,'f1')">☝️ Tap softly on the screen</button>
+<button class="choice" onclick="ans(this,false,'f1')">👊 Hit the screen hard</button></div><div id="f1" class="fb"></div><nav></nav></section>
+
+<section class="s"><h2>👍 Tablet Care</h2><div class="parts">
+<div class="part"><b>🛡️</b>Keep it in its casing.</div><div class="part"><b>☝️</b>Tap softly.</div>
+<div class="part"><b>⌨️✨</b>Keep the keyboard clean.</div><div class="part"><b>🖊️</b>Use the stylus carefully.</div>
+<div class="part"><b>🚫🥤</b>Keep food and drinks away.</div></div><nav></nav></section>
+
+<section class="s"><h2>🎯 Safe or Unsafe?</h2><p class="q">Choose the SAFE action.</p><div class="choices">
+<button class="choice" onclick="ans(this,false,'f3')">🥤📱 Drink juice while using it</button>
+<button class="choice" onclick="ans(this,true,'f3')">🛡️📱 Keep it in its casing</button></div><div id="f3" class="fb"></div><nav></nav></section>
+
+<section class="s"><h2>🔎 Parts of a Tablet</h2><div class="parts">
+<div class="part"><b>📷</b>Camera</div><div class="part"><b>🖥️</b>Screen</div><div class="part"><b>⌨️</b>Keyboard</div><div class="part"><b>🖊️</b>Touch pen</div>
+<div class="part"><b>⏻</b>Power button</div><div class="part"><b>🔊</b>Volume</div><div class="part"><b>🔌</b>Keyboard cable</div><div class="part"><b>🛡️</b>Tablet casing</div>
+</div><nav></nav></section>
+
+<section class="s"><h2>🧩 Which Part?</h2><p class="q">Which button turns the tablet on?</p><div class="choices">
+<button class="choice" onclick="ans(this,true,'f5')">⏻ Power button</button><button class="choice" onclick="ans(this,false,'f5')">🔊 Volume button</button>
+</div><div id="f5" class="fb"></div><nav></nav></section>
+
+<section class="s"><h2>🔊 Which Part?</h2><p class="q">Which buttons make the sound louder or softer?</p><div class="choices">
+<button class="choice" onclick="ans(this,false,'f6')">📷 Camera</button><button class="choice" onclick="ans(this,true,'f6')">🔊 Volume up / down</button>
+</div><div id="f6" class="fb"></div><nav></nav></section>
+
+<section class="s"><h2>▶️ Switch On</h2><p>To switch on the tablet:</p><div class="steps"><div class="step">Find the power button.</div><div class="step">Press and hold it for <b>3 seconds</b>.</div><div class="step">Watch the screen appear.</div></div><nav></nav></section>
+
+<section class="s"><h2>⏹️ Switch Off</h2><p>To switch off the tablet:</p><div class="steps"><div class="step">Press and hold the power button for <b>3 seconds</b>.</div><div class="step">Tap <b>Power off</b>.</div><div class="step">Tap <b>OK</b>.</div><div class="step">The tablet shuts down.</div></div><nav></nav></section>
+
+<section class="s"><h2>⚡ Quick Check</h2><p class="q">How long do you press and hold the power button?</p><div class="choices">
+<button class="choice" onclick="ans(this,false,'f9')">1 second</button><button class="choice" onclick="ans(this,true,'f9')">3 seconds</button><button class="choice" onclick="ans(this,false,'f9')">10 seconds</button>
+</div><div id="f9" class="fb"></div><nav></nav></section>
+
+<section class="s"><div class="hero"><div class="emoji">🏆⭐</div><h1>Tablet Expert!</h1><p>You learned tablet care, tablet parts, and how to switch a tablet on and off.</p><div class="buttons" style="justify-content:center"><button class="next" onclick="go(0)">Play Again ↻</button><button class="back" onclick="location.href='../'">🏠 Units</button></div></div></section>
+
+</div><script>
+const S=[...document.querySelectorAll('.s')];let cur=0;
+document.querySelectorAll('nav').forEach((n,i)=>n.innerHTML='<div class="buttons"><button class="back" onclick="go('+(i)+')">◀ Back</button><button class="next" onclick="go('+(i+2)+')">Next ▶</button></div>');
+function go(n){cur=Math.max(0,Math.min(n,S.length-1));S.forEach((x,i)=>x.classList.toggle('on',i===cur));document.getElementById('bar').style.width=(cur/(S.length-1)*100)+'%';scrollTo(0,0)}
+function ans(b,ok,id){let g=b.parentElement.querySelectorAll('.choice');g.forEach(x=>x.classList.remove('good','bad'));b.classList.add(ok?'good':'bad');let f=document.getElementById(id);f.className='fb show '+(ok?'ok':'no');f.textContent=ok?'✅ Great job!':'❌ Try again. Look for the better choice.'}
+</script></body></html>
